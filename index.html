@@ -30,21 +30,19 @@
 
 <script>
 let questions = [
-"Best friend ah irupom la? 🤝",
-"Daily pesuvom promise? 🙂",
-"Sandai pottalum leave panna koodadhu 😌",
-"Forever friendship ok va? 💖"
+"Konjam yosichu click pannu 😉",
+"Sure ah friend ah irupa? 🤝",
+"Last chance think panniko 🙂",
+"Best friend ah irukanum promise!",
+"Okay okay click pannidu 😁"
 ];
 
 let count = 0;
 
 function funYes(){
-  if(count < questions.length){
-    document.getElementById("question").innerHTML = questions[count];
-    count++;
-  }else{
-    document.getElementById("question").innerHTML = "Yay! Friendship Forever 💖";
-  }
+  document.getElementById("question").innerHTML =
+    questions[count % questions.length];
+  count++;
 }
 
 function moveNo(){
