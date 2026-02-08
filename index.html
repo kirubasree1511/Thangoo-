@@ -1,35 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Friendship</title>
-<style>
-body{
-  text-align:center;
-  font-family:Arial;
-  background:#ffe6eb;
-  margin-top:100px;
-}
-button{
-  padding:12px 22px;
-  font-size:18px;
-  border:none;
-  border-radius:10px;
-  margin:10px;
-}
-#yes{background:#ff4d6d;color:white;}
-#no{position:absolute;}
-</style>
+  <title>Friendship</title>
+
+  <style>
+    body{
+      background:#f7e9ea;
+      font-family:Arial;
+      text-align:center;
+      height:100vh;
+      overflow:hidden;
+    }
+
+    #funny{
+      position:absolute;
+      left:40%;
+      top:45%;
+      font-size:18px;
+      font-weight:bold;
+    }
+
+    button{
+      padding:10px 18px;
+      border:none;
+      border-radius:8px;
+      margin:10px;
+      cursor:pointer;
+    }
+
+    #yes{background:#ff4d6d;color:white;}
+    #no{position:absolute;}
+  </style>
 </head>
 
 <body>
 
-<h2>Karuva Mama 💗<br>Will you be my Lifelong friend?</h2>
+<h2>Karuvа Mama 💗<br>Will you be my Lifelong friend?</h2>
 
-<button id="yes" onclick="funYes()">YES</button>
+<div id="funny">Konjam yosichu click pannu 😉</div>
+
+<br><br>
+<button id="yes" onclick="nextFunny()">YES</button>
 <button id="no" onmouseover="moveNo()">NO</button>
 
 <script>
-let messages = [
+let lines = [
 "Konjam yosichu click pannu 😉",
 "Sure ah friend ah irupa? 🤝",
 "Last chance think panniko 🙂",
@@ -39,33 +54,25 @@ let messages = [
 
 let count = 0;
 
-function funYes(){
- if(count < messages.length){
-   showMessage(messages[count]);
-   count++;
- }else{
-   document.body.innerHTML="<h1>Yay 💗 Best Friends!</h1>";
- }
+function nextFunny(){
+  let f = document.getElementById("funny");
+
+  if(count < lines.length){
+    f.innerHTML = lines[count];
+    f.style.left = Math.random()*300 + "px";
+    f.style.top = Math.random()*300 + "px";
+    count++;
+  }else{
+    f.innerHTML = "Friends forever Karuvaya 💖";
+    f.style.left = "40%";
+    f.style.top = "45%";
+  }
 }
 
 function moveNo(){
- let btn=document.getElementById("no");
- btn.style.top=Math.random()*300+"px";
- btn.style.left=Math.random()*300+"px";
-}
-
-function showMessage(text){
- let box=document.createElement("div");
- box.style.position="fixed";
- box.style.bottom="20px";
- box.style.left="50%";
- box.style.transform="translateX(-50%)";
- box.style.background="white";
- box.style.padding="15px";
- box.style.borderRadius="10px";
- box.style.boxShadow="0 0 10px rgba(0,0,0,0.2)";
- box.innerHTML=text+"<br><br><button onclick='this.parentElement.remove()'>OK</button>";
- document.body.appendChild(box);
+  let btn = document.getElementById("no");
+  btn.style.left = Math.random()*350 + "px";
+  btn.style.top = Math.random()*350 + "px";
 }
 </script>
 
